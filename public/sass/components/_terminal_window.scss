@@ -1,0 +1,86 @@
+$terminal_default_width : 100vw;
+$terminal_default_height : 100vh;
+@mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white,  50%)) {
+  // For Google Chrome
+  &::-webkit-scrollbar {
+      width:  $size;
+      height: $size;
+  }
+
+  &::-webkit-scrollbar-thumb {
+      background: $foreground-color;
+  }
+
+  &::-webkit-scrollbar-track {
+      background: $background-color;
+  }
+
+}
+.terminal-window{
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  max-width: $terminal_default_width;
+  height: $terminal_default_height;
+  position: fixed;
+  bottom: 0;
+  left: calc(50vw - #{($terminal_default_width/2)});
+  background: #1E1E1E;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  transition : all .5s;
+  
+  &.minimized{
+    transform : translateY(calc(100% - 25px));
+  }
+  header{
+    flex: 1;
+    max-height: 25px;
+    background: #D5D5D5;
+    
+    nav.controls{
+      display: flex;
+      flex: 1;
+      flex-direction: row;
+      padding: 0 5px;
+      
+      .control-item{
+        flex: 1;
+        max-width: 25px;
+        height: 25px;
+        
+        .bull{
+          display: block;
+          height: 13px;
+          width: 13px;
+          position: relative;
+          top: calc(50% - 6.5px);
+          border-radius: 100%;
+          background: black;
+          
+        }
+        &.control-close{
+          .bull{
+            background: #E93D34;
+          }
+        }
+        &.control-minimize{
+          .bull{
+            background: #FF9800;
+          }
+        }
+        &.control-open{
+          .bull{
+            background: #4CAF50;
+          }
+        }        
+      }
+    }
+  }  
+  main{
+    flex: 2;
+     overflow: auto;
+     @include scrollbars(5px, #a7a7a7, #eeeeee);
+  }  
+}
+
+

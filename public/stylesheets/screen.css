@@ -1,0 +1,284 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* line 5, ../../../../../../Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../../Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../../Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../../Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../../Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../../Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../../Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../../Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../../Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 19, ../sass/components/_terminal_window.scss */
+.terminal-window {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  max-width: 100vw;
+  height: 100vh;
+  position: fixed;
+  bottom: 0;
+  left: calc(50vw - 50vw);
+  background: #1E1E1E;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  transition: all .5s;
+}
+/* line 32, ../sass/components/_terminal_window.scss */
+.terminal-window.minimized {
+  transform: translateY(calc(100% - 25px));
+}
+/* line 35, ../sass/components/_terminal_window.scss */
+.terminal-window header {
+  flex: 1;
+  max-height: 25px;
+  background: #D5D5D5;
+}
+/* line 40, ../sass/components/_terminal_window.scss */
+.terminal-window header nav.controls {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  padding: 0 5px;
+}
+/* line 46, ../sass/components/_terminal_window.scss */
+.terminal-window header nav.controls .control-item {
+  flex: 1;
+  max-width: 25px;
+  height: 25px;
+}
+/* line 51, ../sass/components/_terminal_window.scss */
+.terminal-window header nav.controls .control-item .bull {
+  display: block;
+  height: 13px;
+  width: 13px;
+  position: relative;
+  top: calc(50% - 6.5px);
+  border-radius: 100%;
+  background: black;
+}
+/* line 62, ../sass/components/_terminal_window.scss */
+.terminal-window header nav.controls .control-item.control-close .bull {
+  background: #E93D34;
+}
+/* line 67, ../sass/components/_terminal_window.scss */
+.terminal-window header nav.controls .control-item.control-minimize .bull {
+  background: #FF9800;
+}
+/* line 72, ../sass/components/_terminal_window.scss */
+.terminal-window header nav.controls .control-item.control-open .bull {
+  background: #4CAF50;
+}
+/* line 79, ../sass/components/_terminal_window.scss */
+.terminal-window main {
+  flex: 2;
+  overflow: auto;
+}
+/* line 5, ../sass/components/_terminal_window.scss */
+.terminal-window main::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+/* line 10, ../sass/components/_terminal_window.scss */
+.terminal-window main::-webkit-scrollbar-thumb {
+  background: #a7a7a7;
+}
+/* line 14, ../sass/components/_terminal_window.scss */
+.terminal-window main::-webkit-scrollbar-track {
+  background: #eeeeee;
+}
+
+/* line 11, ../sass/components/_terminal.scss */
+.terminal {
+  min-height: 100%;
+  background: #232323;
+  color: #FFF;
+  font-family: monospace;
+  padding: 10px;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 1.5;
+  display: inline-block;
+  min-width: 100%;
+}
+/* line 22, ../sass/components/_terminal.scss */
+.terminal *::selection {
+  background: #FFF;
+  /* WebKit/Blink Browsers */
+  text-shadow: 0 0 0 #232323;
+}
+/* line 26, ../sass/components/_terminal.scss */
+.terminal *::-moz-selection {
+  background: #FFF;
+  /* Gecko Browsers */
+  text-shadow: 0 0 0 #232323;
+}
+/* line 30, ../sass/components/_terminal.scss */
+.terminal .line {
+  color: transparent;
+  text-shadow: 0 0 0 #FFF;
+}
+/* line 33, ../sass/components/_terminal.scss */
+.terminal .line.error {
+  text-shadow: 0 0 0 #D24D57;
+}
+/* line 36, ../sass/components/_terminal.scss */
+.terminal .line pre {
+  margin: 0;
+}
+/* line 39, ../sass/components/_terminal.scss */
+.terminal .line .pulse {
+  -moz-animation: pulse 1s ease-in-out infinite;
+  -webkit-animation: pulse 1s ease-in-out infinite;
+  animation: pulse 1s ease-in-out infinite;
+  text-shadow: 0 0 0 #32c146;
+}
+/* line 43, ../sass/components/_terminal.scss */
+.terminal .line .command {
+  text-shadow: 0 0 0 #32c146;
+  outline: none;
+}
+/* line 47, ../sass/components/_terminal.scss */
+.terminal .line .loader:before {
+  animation: loader 0.7s ease-in-out infinite;
+  content: "";
+}
+/* line 53, ../sass/components/_terminal.scss */
+.terminal .comment {
+  color: transparent;
+  text-shadow: 0 0 0 gray;
+}
+
+@-moz-keyframes pulse {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes pulse {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes pulse {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes loader {
+  0% {
+    content: "\7C";
+  }
+  14.3% {
+    content: "\2F";
+  }
+  28.6% {
+    content: "\2D";
+  }
+  /*\2013*/
+  42.9% {
+    content: "\5C";
+  }
+  57.2% {
+    content: "\7C";
+  }
+  71.5% {
+    content: "\2F";
+  }
+  85.8% {
+    content: "\2D";
+  }
+  100% {
+    content: "\5C";
+  }
+}
+/* line 11, ../sass/screen.scss */
+* {
+  box-sizing: border-box;
+}
+
+/* line 13, ../sass/screen.scss */
+body {
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: black;
+  background-size: cover;
+  overflow: hidden;
+}

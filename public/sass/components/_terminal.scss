@@ -1,0 +1,83 @@
+@import "compass/css3/animation";
+@import "compass/css3/transition";
+
+
+
+$background-color: #232323;
+$command-color: #32c146;
+$error-color: #D24D57;
+$comment-color: gray;
+$default-color: #FFF;
+.terminal{
+    min-height: 100%;
+    background: $background-color;
+    color: $default-color;
+    font-family: monospace;
+    padding: 10px;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 1.5;
+    display: inline-block;
+    min-width: 100%;
+    & *::selection {
+        background: $default-color; /* WebKit/Blink Browsers */
+         text-shadow: 0 0 0 $background-color;
+    }
+    & *::-moz-selection {
+        background: $default-color; /* Gecko Browsers */
+        text-shadow: 0 0 0 $background-color;
+    }
+    .line{
+        color: transparent; //hide the caret
+        text-shadow: 0 0 0 $default-color;
+        &.error{
+            text-shadow: 0 0 0 $error-color;
+        }
+        pre{
+            margin: 0;
+        }
+        .pulse{
+            @include animation(pulse 1s ease-in-out infinite);
+            text-shadow: 0 0 0 $command-color;
+        }
+        .command{
+            text-shadow: 0 0 0 $command-color;
+            outline: none;
+        }
+        .loader:before{
+            animation: loader 0.7s ease-in-out infinite;
+            content: "";
+        }
+    }
+        
+    .comment{
+        color :  transparent;
+        text-shadow: 0 0 0 $comment-color;
+    }
+    
+
+}
+
+@include keyframes(pulse){
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 1,
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
+
+@keyframes loader {
+  0% { content: "\7C"; }
+  14.3% { content: "\2F"; }
+  28.6% { content: "\2D"; } /*\2013*/
+  42.9% { content: "\5C"; }
+  57.2% { content: "\7C"; }
+  71.5% { content: "\2F"; }
+  85.8% { content: "\2D"; }
+  100% { content: "\5C"; }
+}

@@ -11,6 +11,7 @@
 |
 */
 Route::get('/',function(){
+    set_time_limit(0);
     return view('terminal');
 });
 Route::get('/run/{command}', 'Commands\CommandsController@run');

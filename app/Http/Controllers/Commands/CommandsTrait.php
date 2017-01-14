@@ -73,7 +73,7 @@ trait CommandsTrait{
     public function cat($command, $args, $dir, $realdir)
     {
         if(isset($args[0])){
-            if(file_exists($dir.'/'.$args[0])){
+            if(is_file ($dir.'/'.$args[0])){
                 $output = file($dir.'/'.$args[0]);
             }else{
                 $output = ['File not found'];
@@ -88,6 +88,34 @@ trait CommandsTrait{
             'code' => $code,
         ];
     }
+
+    public function php($command, $args, $dir, $realdir)
+    {
+        if(count($args) == 0){
+            $args[] = '--version';
+        }
+        chdir($dir);
+        exec(env('php','php').' '.implode(' ',$args), $output, $code );
+        return [
+            'output' => $output,
+            'code' => $code,
+        ];
+    }
+
+    public function composer($command, $args, $dir, $realdir)
+    {
+        if(count($args) == 0){
+            $args[] = '--version';
+        }
+        chdir($dir);
+        exec(env('php','php').' '.$realdir.'/../addons/composer.phar '.implode(' ',$args), $output, $code );
+        return [
+            'output' => $output,
+            'code' => $code,
+        ];
+    }
+
+
 
     
 

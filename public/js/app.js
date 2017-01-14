@@ -70,8 +70,26 @@ var $terminal = $terminal_window_content.terminal({
                 });
             }
         },
-        
-
+        {
+            command: 'php',
+            help: 'php [args]',
+            program: function (prompt, args) {
+                prompt.wait()
+                sendCommand('php ' + args.join(' '), prompt, function(data){
+                    defaultDisplay(data,prompt);
+                });
+            }
+        },
+        {
+            command: 'composer',
+            help: 'composer [args]',
+            program: function (prompt, args) {
+                prompt.wait()
+                sendCommand('composer ' + args.join(' '), prompt, function(data){
+                    defaultDisplay(data,prompt);
+                });
+            }
+        },
     ]
 });
 

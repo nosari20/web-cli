@@ -1,5 +1,5 @@
-$terminal_default_width : 100vw;
-$terminal_default_height : 100vh;
+$terminal_default_width : 50vw;
+$terminal_default_height : 50vh;
 @mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white,  50%)) {
   // For Google Chrome
   &::-webkit-scrollbar {
@@ -19,15 +19,16 @@ $terminal_default_height : 100vh;
 .terminal-window{
   display: flex;
   flex-direction: column;
-  width: 100vw;
+  width: $terminal_default_width;
   max-width: $terminal_default_width;
   height: $terminal_default_height;
-  position: fixed;
   bottom: 0;
   left: calc(50vw - #{($terminal_default_width/2)});
   background: #1E1E1E;
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
   transition : all .5s;
+  overflow: hidden;
+  border-radius: 3px;
   
   &.minimized{
     transform : translateY(calc(100% - 25px));
